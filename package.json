@@ -2,6 +2,26 @@
   "dependencies": {
     "console.table": "^0.10.0",
     "inquirer": "^9.0.2",
-    "mysql2": "^2.3.3"
-  }
+    "mysql2": "^2.3.3",
+    "node-fetch": "^2.6.1"
+  },
+  "scripts": {
+    "start": "node server.js"
+  },
+  "name": "employee-tracker",
+  "version": "1.0.0",
+  "main": "server.js",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vanessaroman/sql-employee-tracker.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vanessaroman/sql-employee-tracker/issues"
+  },
+  "homepage": "https://github.com/vanessaroman/sql-employee-tracker#readme",
+  "description": "",
+  "type": "module" 
 }
