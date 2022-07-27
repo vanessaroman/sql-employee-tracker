@@ -5,7 +5,7 @@ const mysql = require('mysql2')
 const cTable = require('console.table');
 require ('dotenv').config()
 
-
+// connecting server to database
 const db = mysql.createConnection(
     {
         host: 'localhost',
@@ -66,6 +66,8 @@ function allDepartments() {
         
         console.table(response);
 
+        return start();
+
       });
 }
 
@@ -78,7 +80,9 @@ function allRoles() {
           return;
         }
         
+        console.log('Departments Guide: 1=Sales, 2=Engineering, 3=Finance, 4=Legal')
         console.table(response);
+        return start();
 
       });
 }
@@ -93,6 +97,121 @@ function allEmployees() {
         }
         
         console.table(response);
+        return start();
 
       });
+}
+
+
+// function to add a department
+function addDepartment() {
+
+    inquirer.prompt([
+        {
+            type: 'input',
+            message: "What's the department name?",
+            name: 'departmentName',
+        }
+
+    ]).then((response) => {
+
+        const newDepartment = [response.departmentName];
+
+        db.query("INSERT INTO department (name) VALUES (?)", newDepartment, (err, result) => {
+            if (err) {
+              throw err
+              return;
+            }
+            console.log ('New department added!')
+            // console.table(result);
+            return start();
+    
+          });
+
+    })
+    
+}
+
+// function to add a role
+function addRole() {
+
+    inquirer.prompt([
+        {
+            type: 'input',
+            message: "What's the role title?",
+            name: 'roleTitle',
+        },
+        {
+            type: 'input',
+            message: "What's the salary?",
+            name: 'roleSalary',
+        },
+        {
+            type: 'list',
+            message: "What's the department id? (Hint: 1=Sales, 2=Engineering, 3=Finance, 4=Legal",
+            name: 'roleDepartment',
+            choices: ["1", "2", "3", "4"]
+        },
+
+    ]).then((response) => {
+
+        const newRole = [response.roleTitle, response.roleSalary, response.roleDepartment];
+
+        db.query("INSERT INTO employee_role (title, salary, department_id) VALUES (?, ?, ?)", newRole, (err, result) => {
+            if (err) {
+              throw err
+              return;
+            }
+            console.log ('New role added!')
+            // console.table(result);
+            return start();
+    
+          });
+
+    })
+    
+}
+
+// function to add an employee
+function addEmployee() {
+
+    inquirer.prompt([
+        {
+            type: 'input',
+            message: "What's the employee's id?",
+            name: 'employeeID',
+        },
+        {
+            type: 'input',
+            message: "What's the employee's first name?",
+            name: 'employeeFirst',
+        },
+        {
+            type: 'input',
+            message: "What's the employee last name?",
+            name: 'employeeLast',
+        },
+        // {
+        //     type: 'input',
+        //     message: "Is this employee a manager? (if answer is YES insert manager id number. If answer is NO hit enter)",
+        //     name: 'employeeManager',
+        // },
+
+    ]).then((response) => {
+
+        const newEmployee = [response.employeeID, response.employeeFirst, response.employeeLast];
+
+        db.query("INSERT INTO employee (id, first_name, last_name) VALUES (?, ?, ?)", newEmployee, (err, result) => {
+            if (err) {
+              throw err
+              return;
+            }
+            console.log ('New employee added!')
+            // console.table(result);
+            return start();
+    
+          });
+
+    })
+    
 }
