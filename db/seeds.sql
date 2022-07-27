@@ -5,12 +5,22 @@ VALUES ("Sales"),
        ("Finance"),
        ("Legal");
 
-INSERT INTO employee_role (id, title, salary, department)
-VALUES ("201", "Sales Lead", "100000", "Sales"),
-       ("202", "Salesperson", "80000", "Sales"),
-       ("203", "Lead Engineer", "150000", "Engineering"),
-       ("204", "Software Engineer", "120000", "Engineering"),
-       ("204", "Account Manager", "160000", "Finance"),
-       ("204", "Accountant", "125000", "Finance"),
-       ("204", "Legal Team Lead", "250000", "Legal"),
-       ("204", "Lawyer", "190000", "Legal");
+INSERT INTO employee_role (title, salary, department_id)
+VALUES ("Sales Lead", "100000", "1" ),
+       ("Salesperson", "80000", "1"),
+       ("Lead Engineer", "150000", "2"),
+       ("Software Engineer", "120000", "2"),
+       ("Account Manager", "160000", "3"),
+       ("Accountant", "125000", "3"),
+       ("Legal Team Lead", "250000", "4"),
+       ("Lawyer", "190000", "4");
+
+INSERT INTO employee (id, first_name, last_name, role_id, manager_id)
+VALUES ("201", "Karina", "Concepcion", "1", 201),
+       ("202", "Fabiola", "Rocko", "2", NULL),
+       ("203", "Zoya", "Sarow", "3", 203),
+       ("204", "Petra", "Perez", "4", NULL),
+       ("205", "Estefano", "Rojas", "5", 205),
+       ("206", "Tatiana", "Munoz", "6", NULL),
+       ("207", "Amelia", "Gonzales", "7", 207),
+       ("208", "Katalina", "Anastasia", "8", NULL);

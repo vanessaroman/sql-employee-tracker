@@ -1,7 +1,8 @@
 {
   "dependencies": {
     "console.table": "^0.10.0",
-    "inquirer": "^9.0.2",
+    "dotenv": "^16.0.1",
+    "inquirer": "^6.3.1",
     "mysql2": "^2.3.3",
     "node-fetch": "^2.6.1"
   },
@@ -23,5 +24,5 @@
   },
   "homepage": "https://github.com/vanessaroman/sql-employee-tracker#readme",
   "description": "",
-  "type": "module" 
+  "type": ""
 }
