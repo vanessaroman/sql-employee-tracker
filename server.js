@@ -215,3 +215,51 @@ function addEmployee() {
     })
     
 }
+
+// Function to update employee
+// function updateEmployee() {
+
+//     const getEmployees = () =>{
+//         db.query("SELECT first_name FROM employee")
+//     }
+
+//     inquirer.prompt([
+//         {
+//             type: 'input',
+//             message: "What's the employee's id?",
+//             name: 'employeeID',
+//         },
+//         {
+//             type: 'input',
+//             message: "What's the employee's first name?",
+//             name: 'employeeFirst',
+//         },
+//         {
+//             type: 'input',
+//             message: "What's the employee last name?",
+//             name: 'employeeLast',
+//         },
+//         // {
+//         //     type: 'input',
+//         //     message: "Is this employee a manager? (if answer is YES insert manager id number. If answer is NO hit enter)",
+//         //     name: 'employeeManager',
+//         // },
+
+//     ]).then((response) => {
+
+//         const newEmployee = [response.employeeID, response.employeeFirst, response.employeeLast];
+
+//         db.query("INSERT INTO employee (id, first_name, last_name) VALUES (?, ?, ?)", newEmployee, (err, result) => {
+//             if (err) {
+//               throw err
+//               return;
+//             }
+//             console.log ('New employee added!')
+//             // console.table(result);
+//             return start();
+    
+//           });
+
+//     })
+    
+// }
